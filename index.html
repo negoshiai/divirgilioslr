@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Virgilio S.r.l. - Ingegneria di Precisione e Lavorazioni Meccaniche</title>
+    
+    <meta name="description" content="Di Virgilio S.r.l. è leader nelle lavorazioni meccaniche di alta precisione. Offriamo servizi di tornitura, fresatura, saldatura e assemblaggio con qualità certificata ISO 9001 e sala metrologica ZEISS.">
+    <meta name="keywords" content="lavorazioni meccaniche di precisione, tornitura cnc, fresatura cnc, officina meccanica, Di Virgilio, Pescara, assemblaggio meccanico, saldatura, certificazione ISO 9001, sala metrologica ZEISS">
+    
+    <!-- Google Fonts: Poppins (Headings) & Lato (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper.js for Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --navy-blue: #0A2342;
+            --technical-grey: #1a2d4a; /* Darker grey for better contrast */
+            --electric-blue: #00A8F3;
+            --light-grey: #E1E5Ea;
+            --text-primary: #f0f4f8;
+            --text-secondary: #a0b4c8;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --shadow-glow: 0 0 15px rgba(0, 168, 243, 0.5), 0 0 5px rgba(0, 168, 243, 0.8);
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        /* --- Base & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--navy-blue);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        /* --- Cursor Trail Effect --- */
+        .cursor-dot, .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--electric-blue);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 168, 243, 0.3);
+            transition: all 0.1s ease-out;
+        }
+        
+        body:hover .cursor-dot, body:hover .cursor-outline {
+            opacity: 1;
+        }
+
+        /* --- Typography & Global Styles --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        a { color: var(--electric-blue); text-decoration: none; transition: var(--transition-smooth); }
+        a:hover { color: var(--light-grey); }
+        
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .section-bg {
+            background-color: var(--technical-grey);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+             position: relative;
+             display: inline-block;
+             padding-bottom: 0.5rem;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--electric-blue);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            border: 2px solid var(--electric-blue);
+            background-color: transparent;
+            color: var(--electric-blue);
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+            cursor: none;
+        }
+
+        .btn:hover {
+            background-color: var(--electric-blue);
+            color: var(--navy-blue);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary {
+            background-color: var(--electric-blue);
+            color: var(--navy-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--electric-blue);
+            box-shadow: none;
+        }
+
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header --- */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(10, 35, 66, 0.8);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+        
+        #header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+        }
+        
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .logo svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-weight: 400;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .lang-switcher a {
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+        .lang-switcher a.active {
+            color: var(--electric-blue);
+        }
+        
+        /* Mobile Nav */
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            background: none;
+            border: none;
+            z-index: 1001;
+            cursor: none;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+        }
+        
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 35, 66, 0.7);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            color: var(--light-grey);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Trust Bar Section --- */
+        #trust-bar {
+            background-color: var(--technical-grey);
+            padding: 2rem 0;
+        }
+        
+        .trust-bar-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+        
+        .trust-item i {
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+        }
+        
+        .trust-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .trust-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Lavorazioni (Services) Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--technical-grey);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(0, 168, 243, 0.2),
+                transparent 30%
+            );
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(1turn); }
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 168, 243, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card-content {
+            position: relative;
+            z-index: 2;
+            background: var(--technical-grey);
+            padding: 1rem;
+            margin: -1px;
+            border-radius: 7px;
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: var(--electric-blue);
+            margin-bottom: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+        
+        .service-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* --- Azienda (Company) Section --- */
+        .azienda-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .azienda-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .azienda-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quality-feature {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+        
+        .quality-feature i {
+            font-size: 2rem;
+            color: var(--electric-blue);
+            margin-top: 5px;
+        }
+
+        /* --- Realizzazioni (Projects) Section --- */
+        #realizzazioni .container {
+            position: relative;
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 320px;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(10, 35, 66, 0.9) 0%, transparent 100%);
+            color: white;
+            padding: 3rem 1.5rem 1.5rem 1.5rem;
+        }
+        
+        .slide-caption h3 {
+            font-size: 1.3rem;
+        }
+        
+        .swiper-pagination-bullet {
+            background: var(--light-grey);
+            opacity: 0.7;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--electric-blue);
+            opacity: 1;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--electric-blue);
+        }
+
+        /* --- Contatti (Contact) Section --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--technical-grey);
+            border: 1px solid #2a3f5e;
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 2px rgba(0, 168, 243, 0.3);
+        }
+        
+        .contact-info ul {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info i {
+            font-size: 1.5rem;
+            color: var(--electric-blue);
+            margin-top: 5px;
+        }
+        
+        .gmap-frame {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 2rem;
+            border: 2px solid var(--technical-grey);
+        }
+        
+        /* --- Footer --- */
+        #footer {
+            background: var(--technical-grey);
+            padding: 4rem 0 2rem 0;
+            color: var(--text-secondary);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-grid h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-about p {
+            font-size: 0.9rem;
+        }
+        
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+        }
+        
+        .footer-links a, .footer-contact span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--electric-blue);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .social-links a:hover {
+            color: var(--electric-blue);
+            border-color: var(--electric-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #2a3f5e;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .hero-content h1 { font-size: 3rem; }
+            
+            .nav-menu { display: none; }
+
+            .mobile-nav-toggle { display: block; }
+            
+            .nav-menu-mobile {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: var(--technical-grey);
+                padding-top: 6rem;
+                transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            }
+            
+            .nav-menu-mobile.active {
+                right: 0;
+            }
+            
+            .nav-menu-mobile ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+
+            .nav-menu-mobile li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu-mobile a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.2rem;
+            }
+
+            .header-right .btn { display: none; }
+            .azienda-content { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            section { padding: 4rem 0; }
+            h1 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .trust-bar-grid { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .swiper-slide { width: 280px; height: 360px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" stroke="var(--electric-blue)" stroke-width="4" fill="none"/>
+                    <path d="M30 35 L40 65" stroke="var(--light-grey)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M40 65 L50 35" stroke="var(--light-grey)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M55 35 V 65" stroke="var(--light-grey)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M55 50 H 70" stroke="var(--light-grey)" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+                <span>Di Virgilio S.r.l.</span>
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#azienda">Azienda</a></li>
+                    <li><a href="#lavorazioni">Lavorazioni</a></li>
+                    <li><a href="#realizzazioni">Realizzazioni</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="#" class="active">IT</a> / <a href="#">EN</a>
+                </div>
+                <a href="#contatti" class="btn btn-primary">Richiedi Preventivo</a>
+            </div>
+            <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation Menu -->
+    <nav class="nav-menu-mobile">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#azienda">Azienda</a></li>
+            <li><a href="#lavorazioni">Lavorazioni</a></li>
+            <li><a href="#realizzazioni">Realizzazioni</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-video-bg">
+                <video autoplay loop muted playsinline poster="https://images.pexels.com/photos/4317157/pexels-photo-4317157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+                    <source src="https://videos.pexels.com/video-files/8099380/8099380-hd_1920_1080_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content container reveal">
+                <h1>Ingegneria di Precisione.<br>Qualità Certificata.</h1>
+                <p>L'ingegneria di precisione che dà forma alle vostre idee. Qualità certificata, dal componente all'assemblato.</p>
+                <a href="#lavorazioni" class="btn">Scopri le Lavorazioni</a>
+            </div>
+        </section>
+
+        <!-- Trust Bar Section -->
+        <section id="trust-bar" class="reveal">
+            <div class="container">
+                <div class="trust-bar-grid">
+                    <div class="trust-item">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <h3>Qualità Certificata</h3>
+                            <p>ISO 9001:2015</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <div>
+                            <h3>Sala Metrologica ZEISS</h3>
+                            <p>Garanzia di Massima Precisione</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h3>Soluzione Completa</h3>
+                            <p>Dal Progetto all'Assemblato Finale</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lavorazioni (Services) Section -->
+        <section id="lavorazioni">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>Le Nostre Lavorazioni</h2>
+                    <p>Forniamo un ciclo produttivo completo per soddisfare ogni esigenza tecnica.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal" style="transition-delay: 0.1s;">
+                         <div class="service-card-content">
+                            <i class="fas fa-sync-alt"></i>
+                            <h3>Tornitura CNC</h3>
+                            <p>Lavorazioni di tornitura ad alta precisione su una vasta gamma di materiali, dai metalli comuni alle leghe speciali.</p>
+                         </div>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.2s;">
+                        <div class="service-card-content">
+                            <i class="fas fa-drafting-compass"></i>
+                            <h3>Fresatura CNC</h3>
+                            <p>Centri di lavoro a 3 e 5 assi per la realizzazione di componenti complessi con tolleranze minime.</p>
+                        </div>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.3s;">
+                        <div class="service-card-content">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Saldatura</h3>
+                            <p>Processi di saldatura specializzati (TIG, MIG/MAG) per garantire giunzioni resistenti e di alta qualità estetica.</p>
+                        </div>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.4s;">
+                        <div class="service-card-content">
+                            <i class="fas fa-cubes"></i>
+                            <h3>Assemblaggio</h3>
+                            <p>Montaggio di gruppi meccanici complessi, fornendo al cliente un prodotto finito e testato, pronto all'uso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Azienda (Company) Section -->
+        <section id="azienda" class="section-bg">
+            <div class="container">
+                <div class="azienda-content">
+                    <div class="azienda-text reveal">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">La Nostra Garanzia:<br>Qualità Totale</h2>
+                        <p>In Di Virgilio S.r.l., la qualità non è un'opzione, ma il fondamento di ogni nostra attività. La nostra tradizione artigianale si fonde con le tecnologie più avanzate per trasformare i progetti in realtà impeccabili.</p>
+                        <p>Siamo più di un fornitore: siamo il partner strategico che assicura affidabilità e performance.</p>
+                        <div class="quality-feature">
+                            <i class="fas fa-microscope"></i>
+                            <div>
+                                <h3>Sala Metrologica Climatizzata</h3>
+                                <p>Il cuore del nostro controllo qualità, dotata di una macchina di misura a coordinate <strong>ZEISS</strong>, per ispezioni dimensionali che garantiscono la conformità assoluta alle specifiche del cliente.</p>
+                            </div>
+                        </div>
+                         <div class="quality-feature">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h3>Certificazione ISO 9001:2015</h3>
+                                <p>Il nostro impegno per l'eccellenza è formalizzato dalla certificazione ISO 9001, un sigillo che attesta processi produttivi rigorosi e un miglioramento continuo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="azienda-image reveal" style="transition-delay: 0.2s;">
+                        <img src="https://images.pexels.com/photos/843225/pexels-photo-843225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sala Metrologica con macchina di misura ZEISS">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Realizzazioni (Projects) Section -->
+        <section id="realizzazioni">
+            <div class="container">
+                 <div class="section-title reveal">
+                    <h2>Realizzazioni in Evidenza</h2>
+                    <p>Esplora alcuni dei nostri progetti, testimonianza della nostra versatilità e competenza tecnica.</p>
+                </div>
+            </div>
+            <div class="swiper-container reveal">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <img src="https://images.pexels.com/photos/6625121/pexels-photo-6625121.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Componente per settore Automotive">
+                        <div class="slide-caption">
+                            <h3>Componente Automotive</h3>
+                            <p>Settore: Automotive</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                         <img src="https://images.pexels.com/photos/6474474/pexels-photo-6474474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Parte per macchinari industriali">
+                         <div class="slide-caption">
+                            <h3>Valvola Industriale</h3>
+                            <p>Settore: Oleodinamica</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                         <img src="https://images.pexels.com/photos/8346830/pexels-photo-8346830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Gruppo assemblato per automazione">
+                          <div class="slide-caption">
+                            <h3>Gruppo Assemblato</h3>
+                            <p>Settore: Automazione</p>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                         <img src="https://images.pexels.com/photos/6963539/pexels-photo-6963539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Componente di precisione per Oil & Gas">
+                         <div class="slide-caption">
+                            <h3>Flangia di Precisione</h3>
+                            <p>Settore: Oil & Gas</p>
+                        </div>
+                    </div>
+                     <!-- Slide 5 -->
+                    <div class="swiper-slide">
+                         <img src="https://images.pexels.com/photos/7131362/pexels-photo-7131362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Lavorazione su acciaio inox">
+                          <div class="slide-caption">
+                            <h3>Perno Speciale</h3>
+                            <p>Settore: Agricoltura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <!-- Contatti (Contact) Section -->
+        <section id="contatti" class="section-bg">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>Parla con un Nostro Tecnico</h2>
+                    <p>Hai un progetto o necessiti di una quotazione? Contattaci. Il nostro team è a tua completa disposizione.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3>Informazioni di Contatto</h3>
+                        <p>Siamo pronti ad ascoltare le tue esigenze e a proporti la soluzione migliore.</p>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i><div><strong>Indirizzo:</strong><br>Via dell'Industria, 123<br>65123 Pescara (PE), Italia</div></li>
+                            <li><i class="fas fa-phone"></i><div><strong>Telefono:</strong><br>+39 085 1234567</div></li>
+                            <li><i class="fas fa-envelope"></i><div><strong>Email:</strong><br>info@divirgiliosrl.eu</div></li>
+                             <li><i class="fas fa-clock"></i><div><strong>Orari:</strong><br>Lun - Ven: 8:30 - 17:30</div></li>
+                        </ul>
+                        <div class="gmap-frame">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47196.48398939766!2d14.169128035314056!3d42.46437637508779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1331a7196076214b%3A0x539423c830467a39!2sPescara%2C%20Province%20of%20Pescara!5e0!3m2!1sen!2sit!4v1701191024564!5m2!1sen!2sit" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <form class="contact-form reveal" style="transition-delay: 0.2s;">
+                         <h3>Richiedi un Preventivo</h3>
+                         <div class="form-group">
+                             <input type="text" name="name" placeholder="Il tuo Nome" required>
+                         </div>
+                         <div class="form-group">
+                             <input type="text" name="company" placeholder="Azienda" required>
+                         </div>
+                         <div class="form-group">
+                             <input type="email" name="email" placeholder="La tua Email" required>
+                         </div>
+                         <div class="form-group">
+                             <textarea name="message" rows="6" placeholder="Descrivi la tua richiesta..." required></textarea>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>Di Virgilio S.r.l.</h4>
+                    <p>Dal 1985, specialisti in lavorazioni meccaniche di alta precisione. La nostra passione per l'ingegneria e l'impegno per la qualità ci rendono il partner ideale per le vostre sfide produttive.</p>
+                     <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Link Utili</h4>
+                    <ul>
+                        <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#azienda"><i class="fas fa-chevron-right"></i> Azienda</a></li>
+                        <li><a href="#lavorazioni"><i class="fas fa-chevron-right"></i> Lavorazioni</a></li>
+                        <li><a href="#realizzazioni"><i class="fas fa-chevron-right"></i> Realizzazioni</a></li>
+                        <li><a href="#contatti"><i class="fas fa-chevron-right"></i> Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatti</h4>
+                    <ul>
+                        <li><p><i class="fas fa-map-marker-alt"></i> Via dell'Industria, 123<br>65123 Pescara (PE), Italia</p></li>
+                        <li><p><i class="fas fa-phone"></i> +39 085 1234567</p></li>
+                        <li><p><i class="fas fa-envelope"></i> info@divirgiliosrl.eu</p></li>
+                        <li><p><i class="fas fa-id-card"></i> P.IVA: 12345678901</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Di Virgilio S.r.l. Tutti i diritti riservati. <br>
+                <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- CUSTOM CURSOR EFFECT ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        let cursorTimeout;
+
+        window.addEventListener('mousemove', function (e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+            
+            // Cursor becomes active
+            cursorDot.style.opacity = '1';
+            cursorOutline.style.opacity = '1';
+            
+            clearTimeout(cursorTimeout);
+            cursorTimeout = setTimeout(() => {
+                cursorDot.style.opacity = '0';
+                cursorOutline.style.opacity = '0';
+            }, 3000); // Hide cursor after 3 seconds of inactivity
+        });
+        
+        // --- Animate cursor on link/button hover ---
+        document.querySelectorAll('a, button, .service-card, .swiper-button-next, .swiper-button-prev').forEach(el => {
+            el.addEventListener('mouseover', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.backgroundColor = 'rgba(0, 168, 243, 0.5)';
+            });
+            el.addEventListener('mouseout', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                 cursorOutline.style.backgroundColor = 'rgba(0, 168, 243, 0.3)';
+            });
+        });
+        
+        // --- STICKY HEADER ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- MOBILE NAV TOGGLE ---
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavMenu = document.querySelector('.nav-menu-mobile');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('active');
+            mobileNavToggle.classList.toggle('fa-times'); // Simple icon change
+        });
+        
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('.nav-menu-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavMenu.classList.remove('active');
+                mobileNavToggle.classList.remove('fa-times');
+            });
+        });
+
+        // --- SCROLL REVEAL ANIMATION (Intersection Observer) ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- SWIPER SLIDER INITIALIZATION ---
+        const swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+        
+        // --- ACTIVE NAV LINK ON SCROLL ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a, .nav-menu-mobile a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+    });
+    </script>
+
+</body>
+</html>
